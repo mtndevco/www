@@ -1,0 +1,113 @@
+.text-shadow(@val: 0 0 1px #fff) {
+	-webkit-text-shadow : @val;
+	-moz-text-shadow    : @val;
+	-ms-text-shadow     : @val;
+	-o-text-shadow      : @val;
+	text-shadow         : @val;
+}
+.box-shadow(@val: 0 0 10px rgba(0, 0, 0, 0.3)) {
+	-webkit-box-shadow : @val;
+	-moz-box-shadow    : @val;
+	-ms-box-shadow     : @val;
+	-o-box-shadow      : @val;
+	box-shadow         : @val;
+}
+.border-radius(@val: 4px) {
+	-webkit-border-radius : @val;
+	-moz-border-radius    : @val;
+	-ms-border-radius     : @val;
+	-o-border-radius      : @val;
+	border-radius         : @val;
+}
+.box-sizing(@val: border-box) {
+	-webkit-box-sizing : @val;
+	-moz-box-sizing    : @val;
+	-ms-box-sizing     : @val;
+	-o-box-sizing      : @val;
+	box-sizing         : @val;
+}
+.transition(@val: 1s linear all) {
+	-webkit-transition : @val;
+	-moz-transition    : @val;
+	-ms-transition     : @val;
+	-o-transition      : @val;
+	transition         : @val;
+}
+.transform(@val: translateX(-5px)) {
+	-webkit-transform : @val;
+	-moz-transform    : @val;
+	-ms-transform     : @val;
+	-o-transform      : @val;
+	transform         : @val;
+}
+.user-select(@val: none) {
+	-webkit-touch-callout: @val;
+	-webkit-user-select  : @val;
+	-moz-user-select     : @val;
+	-ms-user-select      : @val;
+	-o-user-select       : @val;
+	user-select          : @val;
+}
+.background-clip(@val: padding-box) {
+	-webkit-background-clip : @val;
+	-moz-background-clip    : @val;
+	-ms-background-clip     : @val;
+	-o-background-clip      : @val;
+	background-clip         : @val;
+}
+.opacity(@val: 0.5) {
+	@percent: floor(@val * 100);
+	-ms-filter: ~'"progid:DXImageTransform.Microsoft.Alpha(Opacity=@{percent})"';	// Older IE (because IE sucks.)
+	filter: ~"progid:DXImageTransform.Microsoft.Alpha(Opacity=@{percent})";			// More older IE (because IE sucks.)
+	filter: ~"alpha(opacity=@{percent})";											// A tad newer IE (8?) (because IE still sucks.)
+	opacity: @val;																	// FF 0.9+, Safari 2+?, Chrome any?, Opera 9+, IE 9+
+}
+// Courtesy of Twitter Bootstrap (https://github.com/twitter/bootstrap/blob/master/less/mixins.less)
+// For clearing floats like a boss h5bp.com/q
+.clearfix() {
+	*zoom: 1;
+	&:before,
+	&:after {
+		display: table;
+		content: "";
+ 	}
+	&:after {
+		clear: both;
+	}
+}
+.image_replacement() {
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.gradient_vertical(@startColor: #555, @endColor: #333) { // From Bootstrap
+	background-color: mix(@startColor, @endColor, 60%);
+	background-image: -moz-linear-gradient(top, @startColor, @endColor); // FF 3.6+
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@startColor), to(@endColor)); // Safari 4+, Chrome 2+
+	background-image: -webkit-linear-gradient(top, @startColor, @endColor); // Safari 5.1+, Chrome 10+
+	background-image: -o-linear-gradient(top, @startColor, @endColor); // Opera 11.10
+	background-image: linear-gradient(to bottom, @startColor, @endColor); // Standard, IE10
+	background-repeat: repeat-x;
+	filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@startColor),argb(@endColor))); // IE9 and down
+}
+
+.arrow(@arrow_size: 6px, @color: #0f0) {
+	position: relative;
+
+	&:after {
+		top: 100%;
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+	}
+	&:after {
+		border-color: rgba(255, 255, 255, 0);
+		border-top-color: @color;
+		border-width: @arrow_size;
+		left: 50%;
+		margin-left: -@arrow_size;
+	}
+}
