@@ -11,7 +11,7 @@ module.exports = function(grunt) {
 				baseUrl: 'js/src',
 				mainConfigFile: 'js/src/'+filename,
 				name: filename_without_extension,
-				out: 'js/'+filename
+				out: 'js/'+filename_without_extension+'.min.js'
 			}
 		};
 	});
@@ -46,7 +46,7 @@ module.exports = function(grunt) {
 					cwd: 'css/src',
 					src: ['*.less'],
 					dest: 'css',
-					ext: '.css',
+					ext: '.min.css',
 				}],
 			}
 		},
