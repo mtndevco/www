@@ -17,11 +17,20 @@ require.config({
 require(['jquery', 'modernizr', 'less'], function($, Modernizr, Less){
 	// In hoc signo vinces.
 	$(document).ready(function(){
-		$('#fold').height(
-			$(window).height() - $('header').height()
-		);
-		$('#info').height(
-			$(window).height()
-		);
+
+		var size_areas = function size_areas(){
+			$('#fold').height(
+				$(window).height() - $('header').height()
+			);
+			$('#info').height(
+				$(window).height()
+			);
+		};
+
+		$(window).resize(function(){
+			size_areas();
+		});
+
+		size_areas();
 	});
 });
