@@ -1,5 +1,3 @@
-"use strict";
-
 // Let's get config'd, yo!
 require.config({
 	paths: {

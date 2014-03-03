@@ -1,9 +1,12 @@
 {
-	"name": "MTN",
-	"version": "0.1.0",
-	"devDependencies": {
-		"grunt": "~0.4.2",
-		"grunt-contrib-jshint": "~0.6.3",
-		"grunt-contrib-uglify": "~0.2.2"
-	}
+  "name": "mtn-dev-co",
+  "version": "0.1.0",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-requirejs": "~0.4.3",
+    "grunt-contrib-less": "~0.10.0",
+    "grunt-contrib-imagemin": "~0.5.0"
+  }
 }
