@@ -75,5 +75,8 @@ module.exports = function(grunt) {
 
 	// Default task(s).
 	grunt.registerTask('default', ['jshint', 'requirejs', 'less', 'imagemin']);
+	grunt.registerTask('js', ['jshint', 'requirejs']);
+	grunt.registerTask('css', 'less');
+	grunt.registerTask('gfx', 'imagemin');
 
 };
