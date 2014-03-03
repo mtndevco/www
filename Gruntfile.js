@@ -22,7 +22,7 @@ module.exports = function(grunt) {
 
 		jshint: {
 			options: {
-				'globals': {
+				globals: {
 					'require': true,
 					'document': true,
 					'window': true
@@ -53,6 +53,9 @@ module.exports = function(grunt) {
 
 		imagemin: {
 			dynamic: {
+				options: {
+					cache: false
+				},
 				files: [{
 					expand: true,
 					cwd: 'gfx/src',
