@@ -65,6 +65,12 @@ module.exports = function(grunt) {
 			}
 		},
 
+		githooks: {
+			all: {
+				'pre-commit': 'default'
+			}
+		}
+
 	});
 
 	// Load the plugins that provide the task.
@@ -72,11 +78,13 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-requirejs');
 	grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
+	grunt.loadNpmTasks('grunt-githooks');
 
 	// Default task(s).
 	grunt.registerTask('default', ['jshint', 'requirejs', 'less', 'imagemin']);
 	grunt.registerTask('js', ['jshint', 'requirejs']);
 	grunt.registerTask('css', 'less');
 	grunt.registerTask('gfx', 'imagemin');
+	grunt.registerTask('githooks', 'githooks');
 
 };
