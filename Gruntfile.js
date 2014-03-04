@@ -67,7 +67,8 @@ module.exports = function(grunt) {
 
 		githooks: {
 			all: {
-				'pre-commit': 'default'
+				// Will run the jshint and test:unit tasks at every commit
+				'pre-commit': 'default',
 			}
 		}
 
@@ -85,6 +86,6 @@ module.exports = function(grunt) {
 	grunt.registerTask('js', ['jshint', 'requirejs']);
 	grunt.registerTask('css', 'less');
 	grunt.registerTask('gfx', 'imagemin');
-	grunt.registerTask('githooks', 'githooks');
+	grunt.registerTask('hooks', 'githooks');
 
 };
