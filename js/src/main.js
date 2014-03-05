@@ -31,5 +31,27 @@ require(['jquery', 'modernizr'], function($, Modernizr){
 		});
 
 		size_areas();
+
+		(function(){
+
+			var words = [
+				// &#8209; is a non-breaking hyphen
+				'beautiful',
+				'pixel&#8209;perfect',
+				'mobile',
+				'well&#8209;built',
+				'responsive'
+			], i = 0;
+
+			setInterval(function(){
+				$('#rotate-word').fadeOut(function(){
+					$(this).html(words[i=(i+1)%words.length]).fadeIn(300);
+				});
+			}, 5000);
+
+		})();
+
+
+
 	});
 });
