@@ -70,7 +70,24 @@ module.exports = function(grunt) {
 				// Will run the jshint and test:unit tasks at every commit
 				'pre-commit': 'default',
 			}
-		}
+		},
+
+		watch: {
+			js: {
+				files: ['js/src/*.js'],
+				tasks: ['js'],
+				options: {
+					spawn: false,
+				},
+			},
+			css: {
+				files: ['css/src/*.less'],
+				tasks: ['css'],
+				options: {
+					spawn: false,
+				},
+			},
+		},
 
 	});
 
@@ -80,6 +97,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
 	grunt.loadNpmTasks('grunt-githooks');
+	grunt.loadNpmTasks('grunt-contrib-watch');
 
 	// Default task(s).
 	grunt.registerTask('default', ['jshint', 'requirejs', 'less', 'imagemin']);
