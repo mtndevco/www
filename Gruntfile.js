@@ -74,14 +74,24 @@ module.exports = function(grunt) {
 
 		watch: {
 			js: {
-				files: ['js/src/*.js'],
+				files: [
+					'js/src/*.js'
+					'js/libs/*.js',
+					'js/libs/**/*.js',
+					'js/libs/**/**/*.js'
+				],
 				tasks: ['js'],
 				options: {
 					spawn: false,
 				},
 			},
 			css: {
-				files: ['css/src/*.less'],
+				files: [
+					'css/src/*.less',
+					'css/libs/*.less',
+					'css/libs/**/*.less',
+					'css/libs/**/**/*.less'
+				],
 				tasks: ['css'],
 				options: {
 					spawn: false,
