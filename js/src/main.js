@@ -2,8 +2,7 @@
 require.config({
 	paths: {
 		'requirejs': '../libs/require',
-		'jquery'   : '../libs/jquery',
-		'modernizr': '../libs/modernizr'
+		'jquery'   : '../libs/jquery'
 	},
 
 	include: 'requirejs', // Needed for r.js building
@@ -13,7 +12,7 @@ require.config({
 	}
 });
 
-require(['jquery', 'modernizr'], function($, Modernizr){
+require(['jquery'], function($, Modernizr){
 	// In hoc signo vinces.
 	$(document).ready(function(){
 
