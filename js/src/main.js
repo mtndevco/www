@@ -16,6 +16,7 @@ require(['jquery'], function($){
 	// In hoc signo vinces.
 	$(document).ready(function(){
 
+		// Resize the content areas
 		var size_areas = function size_areas(){
 			$('#fold').height(
 				$(window).height() - $('header').height()
@@ -31,19 +32,20 @@ require(['jquery'], function($){
 
 		size_areas();
 
-
+		// Swap words
 		(function(){
 
 			var words = [
 				// &#8209; is a non-breaking hyphen
+				'responsive&nbsp;',
 				'beautiful&nbsp;',
-				'pixel&#8209;perfect&nbsp;',
 				'mobile&nbsp;',
-				'well&#8209;built&nbsp;',
-				'responsive&nbsp;'
+				'reliable&nbsp;',
+				'pixel&#8209;perfect&nbsp;',
 			], i = 0;
 
 			var swap_word = function swap_word(){
+
 				// 1) Fade out
 				// 2) Resize
 				// 3) Fade in next word
@@ -77,11 +79,11 @@ require(['jquery'], function($){
 				});
 
 				// Start the timer again.
-				setTimeout(swap_word(), 5000);
+				setTimeout(swap_word, 6000);
 			};
 
 			// Init word swap
-			setTimeout(swap_word(), 1000);
+			setTimeout(swap_word, 2000);
 
 		})();
 
