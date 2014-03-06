@@ -1,6 +1,8 @@
 // Imports
 @import "../libs/fonts.less";
 @import "../libs/reset.less";
+@import "../libs/mixins.less";
+@import "../libs/animate.less";
 @import "../libs/fontello/css/fontello.less";
 
 
@@ -61,7 +63,7 @@ html {
 
 				i {
 					cursor: pointer;
-					font-size: 34px;
+					font-size: 38px;
 					line-height: @header_height !important;
 
 					&.icon-twitter {
@@ -88,12 +90,28 @@ html {
 				display: table-cell;
 				vertical-align: middle;
 				font-size: 48px;
+				letter-spacing: -1px;
 
-				& > span {
+				span {
 					background: #1684a2;
 					background: rgba(42, 152, 182, 0.75);
 					padding: 15px 25px;
 					display: inline-block;
+
+					strong {
+						display: inline-block;
+						.transition(width 0.5s ease-in-out);
+						-webkit-animation-delay: 0.75s;
+						-moz-animation-delay: 0.75s;
+						-ms-animation-delay: 0.75s;
+						-o-animation-delay: 0.75s;
+						-animation-delay: 0.75s;
+						-webkit-animation-duration: 0.25s;
+						-moz-animation-duration: 0.25s;
+						-ms-animation-duration: 0.25s;
+						-o-animation-duration: 0.25s;
+						-animation-duration: 0.25s;
+					}
 				}
 			}
 		}
