@@ -21,9 +21,9 @@ require(['jquery'], function($){
 			$('#fold').height(
 				$(window).height() - $('header').height()
 			);
-			$('#info').height(
-				$(window).height()
-			);
+			// $('#info').height(
+			//	$(window).height()
+			// );
 		};
 
 		$(window).resize(function(){
@@ -51,11 +51,14 @@ require(['jquery'], function($){
 				// 3) Fade in next word
 				// 4) END (and wait the setInterval duration)
 
-				var $word_span    = $('#rotate-word'),
-					next_word     = words[i=(i+1)%words.length],
-					$next_word    = $('<strong/>').html(next_word),
-					current_width = $word_span.outerWidth(),
-					next_width    = 0;
+				var $word_span      = $('#rotate-word'),
+					next_word       = words[i=(i+1)%words.length],
+					$next_word      = $('<strong/>').html(next_word),
+					current_width   = $word_span.outerWidth(),
+					next_width      = 0,
+					is_mobile_width = $(window).width() < 768 ? true : false,
+					in_action       = is_mobile_width ? 'fadeInLeft' : 'fadeInDown',
+					out_action      = is_mobile_width ? 'fadeOutRight' : 'fadeOutDown';
 
 				// Append the next word in a hidden area
 				// just to measure the width we'll animate to.
@@ -69,13 +72,13 @@ require(['jquery'], function($){
 				// Explicitly set the current width so that it registers for the
 				// CSS transition.  Then, remove the old fadeInDown animate class
 				// (if it's there), and add the fadeOutDown class.
-				$word_span.width(current_width).removeClass('fadeInDown').addClass('fadeOutDown');
+				$word_span.width(current_width).removeClass('fadeInLeft').removeClass('fadeInDown').addClass(out_action);
 
 				// Once that animation is done, set the new target width, add the new
 				// word, remove the old animate class, and finally add the new fadeInDown class.
 				// Note: Delays and durations for the fadeInDown and fadeOutDown are set in CSS.
 				$word_span.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-					$word_span.width(next_width).html(next_word).removeClass('fadeOutDown').addClass('fadeInDown');
+					$word_span.width(is_mobile_width ? 'auto' : next_width).html(next_word).removeClass('fadeOutRight').removeClass('fadeOutDown').addClass(in_action);
 				});
 
 				// Start the timer again.

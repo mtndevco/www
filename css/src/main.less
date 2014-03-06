@@ -101,18 +101,25 @@ html {
 					strong {
 						display: inline-block;
 						.transition(width 0.5s ease-in-out);
-						-webkit-animation-delay: 0.75s;
-						-moz-animation-delay: 0.75s;
-						-ms-animation-delay: 0.75s;
-						-o-animation-delay: 0.75s;
-						-animation-delay: 0.75s;
-						-webkit-animation-duration: 0.25s;
-						-moz-animation-duration: 0.25s;
-						-ms-animation-duration: 0.25s;
-						-o-animation-duration: 0.25s;
-						-animation-duration: 0.25s;
+						.animation-delay(0.75s);
+						.animation-duration(0.25s);
 					}
 				}
+
+
+				@media (max-width: 768px) {
+					span {
+						display: block;
+						text-align: center;
+						strong {
+							text-align: center;
+							display: block;
+							width: 100% !important; // Override resizing done by JS
+							line-height: 1.4;
+						}
+					}
+				}
+
 			}
 		}
 
@@ -122,3 +129,5 @@ html {
 		}
 	}
 }
+
+
