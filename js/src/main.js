@@ -2,7 +2,8 @@
 require.config({
 	paths: {
 		'requirejs': '../libs/require',
-		'jquery'   : '../libs/jquery'
+		'jquery'   : '../libs/jquery',
+		'fittext'  : '../libs/jquery.fittext'
 	},
 
 	include: 'requirejs', // Needed for r.js building
@@ -12,7 +13,7 @@ require.config({
 	}
 });
 
-require(['jquery'], function($){
+require(['jquery', 'fittext'], function($){
 	// In hoc signo vinces.
 	$(document).ready(function(){
 
@@ -21,9 +22,19 @@ require(['jquery'], function($){
 			$('#fold').height(
 				$(window).height() - $('header').height()
 			);
-			// $('#info').height(
-			//	$(window).height()
-			// );
+			//	$('#info').height(
+			//		$(window).height()
+			//	);
+
+			//	var container_width = $('#info > ul').width(),
+			//		li_width = $('#info > ul > li').width(),
+			//		gutter = Math.floor((container_width - (li_width * 4)) / 4);
+
+			//	if (gutter > 0) {
+			//		$('#info > ul > li').css('margin-right', gutter);
+			//		$('#info > ul > li:first-child').css('margin-left', gutter / 2);
+			//		$('#info > ul > li:last-child').css('margin-right', gutter / 2);
+			// }
 		};
 
 		$(window).resize(function(){
@@ -31,6 +42,9 @@ require(['jquery'], function($){
 		});
 
 		size_areas();
+
+		// Fit text
+		$('#info > p').fitText(4);
 
 		// Swap words
 		(function(){
