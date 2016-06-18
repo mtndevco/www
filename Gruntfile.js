@@ -39,7 +39,7 @@ module.exports = function(grunt) {
 					paths: ['css'],
 					compress: true,
 					cleancss: true,
-					report: 'gzip'
+					report: 'min'
 				},
 				files: [{
 					expand: true,
